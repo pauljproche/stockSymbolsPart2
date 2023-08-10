@@ -4,18 +4,18 @@
     <title>Stock Search</title>
 </head>
 <body>
+    <h1 class="title">Search Type:</h1>
     <form method="post" action="/search">
         <label>
-            Search Type:
             <input type="radio" name="searchType" value="symbol" checked> Symbol
             <input type="radio" name="searchType" value="company"> Company Name
         </label>
-        <br>
+        <br/>
         <label>
             Search Term:
             <input type="text" name="searchTerm" required>
         </label>
-        <br>
+        <br/>
         <button type="submit">Search</button>
     </form>
 </body>
