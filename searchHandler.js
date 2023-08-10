@@ -32,9 +32,10 @@ async function searchCompany(searchType, searchTerm) {
 const port = process.env.PORT || 3000;
 
 http.createServer(async function (req, res) {
-    if (req.url === '/search') {
+    } else if (req.url === '/search') {
+    if (req.method === 'GET') {
         const { searchType, searchTerm } = url.parse(req.url, true).query;
-        
+
         try {
             const searchResult = await searchCompany(searchType, searchTerm);
 
@@ -53,10 +54,13 @@ http.createServer(async function (req, res) {
         } catch (err) {
             console.log("Error in request:", err);
             res.writeHead(500, { 'Content-Type': 'text/html' });
-            res.write("An error occurred while processing the request.");
-            res.end();
+            res.end("An error occurred while processing the request.");
         }
-    } else if (req.url === '/form') {
+    } else {
+        res.writeHead(405, { 'Content-Type': 'text/html' });
+        res.end("Method not allowed.");
+    }
+} else if (req.url === '/form') {
         const formHtml = fs.readFileSync('form1.html', 'utf8'); // Change the filename to match your HTML file
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(formHtml);
