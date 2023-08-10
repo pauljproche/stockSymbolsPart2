@@ -4,9 +4,9 @@
   },
   "name": "mongoaltas-nodejs",
   "version": "1.0.0",
-  "main": "populateDatabase.js",
+  "main": "searchHandler.js",
   "scripts": {
-    "start": "node populateDatabase.js"
+    "start": "node searchHandler.js"
   },
   "author": "",
   "license": "ISC",
