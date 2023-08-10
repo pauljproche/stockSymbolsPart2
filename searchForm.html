@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8"> 
     <title>Stock Search</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #5B9F3C;
+            color: #ffffff; /* Set text color for body */
+            font-family: Arial, sans-serif; /* Use a common font */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .search-form {
+            background-image: linear-gradient(180deg, #5B9F3C, #E1C14F);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .search-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .search-form input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .search-form button[type="submit"] {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1 class="title">Search Type:</h1>
-    <form method="post" action="/search">
-        <label>
-            <input type="radio" name="searchType" value="symbol" checked> Symbol
-            <input type="radio" name="searchType" value="company"> Company Name
-        </label>
-        <br/>
-        <label>
-            Search Term:
-            <input type="text" name="searchTerm" required>
-        </label>
-        <br/>
-        <button type="submit">Search</button>
-    </form>
+    <div class="container">
+        <form method="post" action="/search" class="search-form">
+            <h2 class="title">Stock Search</h2>
+            <label>
+                <input type="radio" name="searchType" value="symbol" checked> Symbol
+                <input type="radio" name="searchType" value="company"> Company Name
+            </label>
+            <br>
+            <label>
+                Search Term:
+                <input type="text" name="searchTerm" required>
+            </label>
+            <br>
+            <button type="submit">Search</button>
+        </form>
+    </div>
 </body>
 </html>
