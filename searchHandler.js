@@ -32,7 +32,7 @@ async function searchCompany(searchType, searchTerm) {
 const port = process.env.PORT || 3000;
 
 http.createServer(async function (req, res) {
-    if (req.url.startsWith('/search')) {
+    if (req.url === '/search') {
         const { searchType, searchTerm } = url.parse(req.url, true).query;
         
         try {
@@ -57,7 +57,7 @@ http.createServer(async function (req, res) {
             res.end();
         }
     } else if (req.url === '/form') {
-        const formHtml = fs.readFileSync('searchForm.html', 'utf8');
+        const formHtml = fs.readFileSync('form1.html', 'utf8'); // Change the filename to match your HTML file
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(formHtml);
         res.end();
